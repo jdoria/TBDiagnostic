@@ -1,0 +1,76 @@
+{% extends 'base/base.html' %}
+
+{%block content%}
+
+<h2>Pacientes</h2>
+<a style="margin-left: 1030px; position: absolute;" class="btn btn-primary" href="{% url 'patient:patient_eliminar' object.id %}">Eliminar</a>
+<h4 style="margin-left: 150px;" class="font-weight-bold">Código Paciente:</h4>
+<h5 style="margin-left: 250px;">{{ object.codigo }}</h5>
+
+<h4 style="margin-left: 150px;" class="font-weight-bold">Edad:</h4>
+<h5 style="margin-left: 250px;">{{ object.edad }}</h5>
+
+<h4 style="margin-left: 150px;" class="font-weight-bold">Sexo:</h4>
+{% if object.sexo == True %}
+<h5 style="margin-left: 250px;">Masculino</h5>
+{%elif object.sexo == False%}
+<h5 style="margin-left: 250px;">Femenino</h5>
+{%else%}
+<h5 style="margin-left: 250px;">No hay información</h5>
+{%endif%}
+
+<h4 style="margin-left: 150px;" class="font-weight-bold">¿Tiene VIH/AIDS?</h4>
+{% if object.vih == True %}
+<h5 style="margin-left: 250px;">Sí</h5>
+{%elif object.vih == False%}
+<h5 style="margin-left: 250px;">No</h5>
+{%else%}
+<h5 style="margin-left: 250px;">No hay información</h5>
+{%endif%}
+
+<h4 style="margin-left: 150px;" class="font-weight-bold">¿Tiene diabetes?</h4>
+{% if object.hab_calle == True %}
+<h5 style="margin-left: 250px;">Sí</h5>
+{%elif object.hab_calle == False%}
+<h5 style="margin-left: 250px;">No</h5>
+{%else%}
+<h5 style="margin-left: 250px;">No hay información</h5>
+{%endif%}
+
+<h4 style="margin-left: 150px;" class="font-weight-bold">¿Es habitante de calle?</h4>
+{% if object.diabetes == True %}
+<h5 style="margin-left: 250px;">Sí</h5>
+{%elif object.diabetes == False%}
+<h5 style="margin-left: 250px;">No</h5>
+{%else%}
+<h5 style="margin-left: 250px;">No hay información</h5>
+{%endif%}
+
+<h4 style="margin-left: 150px;" class="font-weight-bold">Información Clínica:</h4>
+{% if object.info_clinica == True %}
+<h5 style="margin-left: 250px;">Sí</h5>
+{%elif object.info_clinica == False%}
+<h5 style="margin-left: 250px;">No</h5>
+{%else%}
+<h5 style="margin-left: 250px;">No hay información</h5>
+{%endif%}
+
+<h4 style="margin-left: 150px;" class="font-weight-bold">Observaciones:</h4>
+<p style="margin-left: 250px;">{{ object.observaciones }}</p>
+
+<h4 style="margin-left: 150px;" class="font-weight-bold">Validación:</h4>
+{% if object.validacion == True %}
+<h5 style="margin-left: 250px;">Sí</h5>
+{%elif object.validacion == False%}
+<h5 style="margin-left: 250px;">No</h5>
+{%else%}
+<h5 style="margin-left: 250px;">No hay información</h5>
+{%endif%}
+
+<a style="margin-left: 400px;" class="btn btn-primary" href="{% url 'patient:patient_editar' object.id %}">Editar</a>
+<a class="btn btn-primary" href="{% url 'patient:patient_diagnosticar' object.id %}">Pre-Diagnostico</a>
+<a class="btn btn-primary" href="{% url 'patient:patient_validar' object.id %}">Validar</a>
+
+
+
+{% endblock %}

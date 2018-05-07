@@ -1,0 +1,90 @@
+{% extends 'base/base.html' %}
+
+{%block content %}
+
+<form method="POST" onsubmit="confirmar();">
+	{% csrf_token %}
+	<h3>Nuevo Paciente</h3>
+	<div class="form-control">
+		<div class="col-md-8 offset-2">
+			<div class="font-weight-bold">
+				<div class="form-group">
+					<label for="{{form.codigo.name}}">{{form.codigo.label}}</label>
+					{{form.codigo}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 offset-2">
+			<div class="font-weight-bold">
+				<div class="form-group">
+					<label for="{{form.edad.name}}">{{form.edad.label}}</label>
+					{{form.edad}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 offset-2">
+			<div class="font-weight-bold">
+				<div class="form-group">
+					<label for="{{form.codigo.name}}">{{form.sexo.label}}</label>
+					{{form.sexo}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 offset-2">
+			<div class="font-weight-bold">
+				<div class="form-group">
+					<label for="{{form.vih.name}}">{{form.vih.label}}</label>
+					{{form.vih}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 offset-2">
+			<div class="font-weight-bold">
+				<div class="form-group">
+					<label for="{{form.diabetes.name}}">{{form.diabetes.label}}</label>
+					{{form.diabetes}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 offset-2">
+			<div class="font-weight-bold">
+				<div class="form-group">
+					<label for="{{form.hab_calle.name}}">{{form.hab_calle.label}}</label>
+					{{form.hab_calle}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 offset-2">
+			<div class="font-weight-bold">
+				<div class="form-group">
+					<label for="{{form.info_clinica.name}}">{{form.info_clinica.label}}</label>
+					{{form.info_clinica}}
+				</div>
+			</div>
+		</div>
+		<div class="col-8 offset-2">
+			<div class="font-weight-bold">
+				<div class="form-group">
+					<label for="{{form.observaciones.name}}">{{form.observaciones.label}}</label>
+					{{form.observaciones}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8 offset-2">
+			<div class="form-group">
+				<button class="btn btn-success" type="submit">Crear</button>
+				<a class="btn btn-secondary" href="{% url 'patient:index' %}">Cancelar</a>
+			</div>
+		</div>
+	</div>
+	
+</form>
+
+<script type="text/javascript">
+	function confirmar() {
+		// body...
+		alert("Paciente creado correctamente");
+	}
+</script>
+
+{% endblock %}

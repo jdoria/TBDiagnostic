@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+
+{% block navbar%}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">TBDiagnostic</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+</nav>
+{% endblock %}
+
+{% block content %}
+<form method="post" onsubmit="return validarDatos();">
+	{% csrf_token %}
+
+<h3 style="margin-top: 70px; margin-left: 450px;" class="font-weight-bold">Ingreso de Usuarios</h3>
+    {% if form.errors %}
+        <p style="margin: center;">Error de autenticación.</p>
+    {% endif %}
+<div class="container" style="margin-top: 40px; margin-left: 300px;">
+	 <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+    		<div class="form-group">
+        		<label for="username">Nombre de usuario:</label>
+        		<input class="form-control" type="text" name="username" id="username">
+    	   </div>
+        </div>
+    </div>    
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+    		<div class="form-group">
+        		<label for="username">Contraseña:</label>
+        		<input class="form-control" type="password" name="password" id="password">
+    	   </div>
+        </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-6 col-md-offset-3">
+    		<div class="form-group">
+                <a href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
+        		<input class="btn btn-primary" type="submit" value="Ingresar"
+                style="margin-left: 270px;">
+    	   </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            ¿No tienes usuario?
+            <div class="form-group">
+                <a href="{% url 'usuario:registrar' %}">Registrar</a>
+           </div>
+        </div>
+    </div>
+</div>
+</form>
+
+<script type="text/javascript">
+    function validarDatos() {
+
+        var usuario = document.getElementById("username");
+        var password = document.getElementById("password");
+        if ((usuario.value == "" || usuario.value == '')
+                && (password.value == "" || password.value == '')) {
+            alert("Debe ingresar su usuario y contraseña");
+            usuario.focus();
+            return false;
+        } else if (usuario.value == "" || usuario.value == '') {
+            alert("Debe ingresar el usuario");
+            usuario.focus();
+            return false;
+
+        } else if (password.value == "" || password.value == '') {
+            alert("Debe ingresar la contraseña");
+            password.focus();
+            return false;
+        }
+        
+    }
+</script>
+
+{% endblock %}

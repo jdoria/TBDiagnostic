@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="post" onsubmit="confirmar();">
+	{% csrf_token %}
+	<h3 style="margin-top: 200px;">¿Desea eliminar el paciente de código {{ object.codigo }} ?</h3>
+
+
+	<button style="margin-top: 10px" class="btn btn-danger" type="submit">Eliminar</button>
+	<a style="margin-top: 10px" class="btn btn-secondary" href="{% url 'patient:patient_leer' object.id %}">Cancelar</a>
+</form>
+
+<script type="text/javascript">
+	function confirmar() {
+		// body...
+		alert("El paciente ha sido eliminado");
+	}
+</script>
+{% endblock %}

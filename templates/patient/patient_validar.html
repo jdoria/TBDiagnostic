@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block content%}
+
+<h3>¿El paciente tiene tuberculosis?</h3>
+<form method="POST" onsubmit="confirmar();">
+	{% csrf_token %}
+	<div class="col-md-8 offset-2">
+		<div class="font-weight-bold">
+			<div class="form-group">
+				<select name="val">
+					<option value="SI">Sí</option>
+					<option value="NO">No</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-8 offset-2">
+		<div class="form-group" style="margin-top:70px;">
+			<button class="btn btn-success" type="submit">Guardar</button>
+			<a class="btn btn-secondary" href="{% url 'patient:patient_leer' patient.id %}">Cancelar</a>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+	function confirmar() {
+		// body...
+		alert("Paciente validado correctamente");
+	}
+</script>
+{%endblock%}

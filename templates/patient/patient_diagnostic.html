@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content%}
+
+<h3 style="margin-top: 200px;">El grado de tuberculosis es {{mlp}} </h3>
+{%if som == 1%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_1.png' %}">
+{%elif som == 2%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_2.png' %}">
+{%elif som == 3%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_3.png' %}">
+{%elif som == 4%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_4.png' %}">
+{%elif som == 5%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_5.png' %}">
+{%elif som == 6%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_6.png' %}">
+{%elif som == 7%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_7.png' %}">
+{%elif som == 8%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_8.png' %}">
+{%elif som == 9%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_9.png' %}">
+{%elif som == 10%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_10.png' %}">
+{%elif som == 11%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_11.png' %}">
+{%else%}
+<img style="margin-left:600px;" src="{% static 'images/SOM_12.png' %}">
+{%endif%}
+
+<h4><a class="btn btn-warning" href="{% url 'patient:patient_leer' patient.id%}">Regresar</a></h4>
+
+{%endblock%}

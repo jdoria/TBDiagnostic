@@ -1,0 +1,26 @@
+{% extends 'base\base.html' %}
+
+{% block content%}
+
+<div class="card border-info mb-3">
+  <div class="card-header">Pagina principal de TBDianostic</div>
+  <div class="card-body">
+    <h4 class="card-title">TBDiagnostic</h4>
+    <p class="card-text">Aplicación desarrollada para la adquisición de datos y diagnóstico de tuberculosis pulmonar</p>
+  </div>
+</div>
+
+{# <button id="prueba">Prueba</button> #}
+
+
+{%endblock%}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#prueba").click(function() {
+			// body...
+			alertify.alert('this is an alert');
+		});
+	});
+
+	alertify.alert('Alert Title', 'Alert Message!', function(){ alertify.success('Ok'); });
+</script>

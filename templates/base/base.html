@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="shortcut icon" href="{% static 'images/favicon.png' %}"/>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	
+	<title>{% block title %} TBDiagnostic {% endblock %} </title>
+</head>
+<body>
+<div class="container">
+
+	{% block navbar %}
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="#">TBDiagnostic</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="{% url 'patient:index' %}"><img src="{% static 'images/home.png' %}" height="23" width="23" border="0">Inicio<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'patient:patient_crear' %}"><img src="{% static 'images/create.png' %}" height="20" width="20" border="0">Crear</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'patient:patient_lista' %}"><img src="{% static 'images/search.png' %}" height="20" width="20" border="0">Consultar</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'patient:patient_upload' %}"><img src="{% static 'images/upload.png' %}" height="23" width="23" border="0">Cargar</a>
+				</li>
+				<li class="form-inline ml-5">
+					<a class="nav-link" href="{% url 'logout' %}"><img src="{% static 'images/not_confirmed.png' %}" height="23" width="23" border="0">Salir</a>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+
+	{% endblock %}
+
+
+	{% block content %}
+	<h4>	Bloque de contenido		</h4>
+	{% endblock %}
+
+
+	{% block footer %}
+	{% endblock%}
+</div>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/ajax.js' %}"></script>
+	<script src="{% static 'js/jquery-2.0.0.min.js' %}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+	{% block extrajs %}
+	{% endblock %}
+
+</body>
+</html>
