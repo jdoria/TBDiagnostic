@@ -1,4 +1,4 @@
-{% extends 'base\base.html' %}
+{% extends 'base/base.html' %}
 
 {% block content%}
 
@@ -10,17 +10,7 @@
   </div>
 </div>
 
-{# <button id="prueba">Prueba</button> #}
 
 
 {%endblock%}
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#prueba").click(function() {
-			// body...
-			alertify.alert('this is an alert');
-		});
-	});
 
-	alertify.alert('Alert Title', 'Alert Message!', function(){ alertify.success('Ok'); });
-</script>

@@ -20,7 +20,7 @@ class modelo(object):
 
     def diagnosticar(self):
         # Cargamos los pesos de la mejor red
-        IW = open("modelo\IW.txt", "r").read()  # IW.txt es un archivo con los pesos de la red entrenada (PESOS ENTRADA)
+        IW = open("./modelo/IW.txt", "r").read()  # IW.txt es un archivo con los pesos de la red entrenada (PESOS ENTRADA)
         t = []
         for x in IW.split(";"):
             t1 = []
@@ -29,15 +29,15 @@ class modelo(object):
             t.append(t1)
         IW = t
         bL = float(
-            open("modelo\\bL.txt", "r").read())
-        LW = open("modelo\LW.txt", "r").read()
+            open("./modelo/bL.txt", "r").read())
+        LW = open("./modelo/LW.txt", "r").read()
         LW = [float(x) for x in LW.split()]
-        bI = open("modelo\\bI.txt", "r").read()
+        bI = open("./modelo/bI.txt", "r").read()
         bI = [float(x) for x in bI.split(";")]
         bI = np.array(bI)
 
         # Cargamos los pesos de la mejor red
-        Codebook = open('modelo\Codebook.txt',
+        Codebook = open('./modelo/Codebook.txt',
                         "r").read();  # Codebook.txt es un archivo con los pesos de la red SOM entrenada
         t = []
         for x in Codebook.split("\n"):
