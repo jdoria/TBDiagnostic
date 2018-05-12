@@ -80,8 +80,8 @@ WSGI_APPLICATION = 'TBDiagnostic.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'TBDiagnostic',
-        'USER': 'postgres',
+        'NAME': 'tbdiagnostic',
+        'USER': 'tuberculosis',
         'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': 5432,
