@@ -49,7 +49,7 @@ class PatientForm(forms.ModelForm):
         }
         widgets = {
             'codigo': forms.TextInput(attrs={'class': 'form-control'}),
-            'edad': forms.NumberInput(attrs={'class': 'form-control'}),
+            'edad': forms.NumberInput(attrs={'class': 'form-control', 'min': 0}),
             'sexo': forms.Select(choices=opciones_sexo),
             'vih': forms.Select(choices=opciones),
             'diabetes': forms.Select(choices=opciones),

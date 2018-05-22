@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-
+{% load staticfiles %}
 {% block navbar%}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">TBDiagnostic</a>
@@ -7,12 +7,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 </nav>
+<script src="{% static 'js/jquery-2.0.0.min.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 
 <form method="POST" onsubmit="return validarDatos();">
-	{% csrf_token %}
+    {% csrf_token %}
 
     <fieldset style="margin-top: 70px; margin-left: 350px;">
         <h2 class="font-weight-bold">Registro de Usuarios</h2>
@@ -40,6 +41,7 @@
             <div class="form-group">
                 <label for="password">Contraseña</label>
                 <input type="password" class="form-control" placeholder="Ingresa tu contraseña" name="password1" id="password1">
+                <span id="mensaje"></span>
             </div>
         </div>
         <div class="col-sm-6">
@@ -51,7 +53,7 @@
         <button class="btn btn-primary" type="submit">Registrar</button>
         <a class="btn btn-secondary" href="{% url 'login' %}">Atrás</a>
     </fieldset>
-	<!--{{form.as_p}}
+    <!--{{form.as_p}}
     <input type="submit" name="">-->
 </form>
 
@@ -101,6 +103,27 @@
 
         }
     }
+
+    $(document).ready(function(){
+    $(function(){
+        var mayus = new RegExp("(?=.*[A-Z])");
+        var especial = new RegExp("(?=.*[!@#$&*.])");
+        var number = new RegExp("(?=.*[0-9])");
+        var lower = new RegExp("(?=.*[a-z])");
+        var len = new RegExp("(?=.{8,})");
+
+        $("#password1").on("keyup", function(){
+            var pass = $("#password1").val();
+
+            if(mayus.test(pass) && especial.test(pass) && number.test(pass) && lower.test(pass) && len.test(pass)){
+                $("#mensaje").text("La contraseña es segura");
+            }else{
+                $("#mensaje").text("La contraseña es insegura");
+            }
+        });
+    });
+    });
+
 
 
 </script>
