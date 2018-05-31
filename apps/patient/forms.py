@@ -58,3 +58,9 @@ class PatientForm(forms.ModelForm):
             'observaciones': forms.TextInput(attrs={'class': 'form-control'}),
             'validacion': forms.Select(choices=opciones2),
         }
+
+    def clean_codigo(self):
+        codigo = self.cleaned_data['codigo']
+        if Patient.objects.filter(codigo=codigo).exists():
+            raise ValidationError("El código ya existe")
+        return codigo

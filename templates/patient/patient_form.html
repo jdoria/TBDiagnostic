@@ -2,7 +2,7 @@
 
 {%block content %}
 
-<form method="POST" onsubmit="confirmar();">
+<form method="POST">
 	{% csrf_token %}
 	<h3>Nuevo Paciente</h3>
 	<div class="form-control">
@@ -11,6 +11,7 @@
 				<div class="form-group">
 					<label for="{{form.codigo.name}}">{{form.codigo.label}}</label>
 					{{form.codigo}}
+					{{form.errors.codigo}}
 				</div>
 			</div>
 		</div>
